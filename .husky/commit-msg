@@ -1,4 +1,8 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
-
-npx --no-install commitlint --edit 
+# 提交记录检查
+pnpm commitlint --edit $1
+# 格式化检查
+pnpm format
+# eslint检查
+# pnpm lint:check
