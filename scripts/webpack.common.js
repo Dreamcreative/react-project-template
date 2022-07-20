@@ -1,18 +1,15 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-
 function resolve(relatedPath) {
   return path.join(__dirname, relatedPath)
 }
 const webpackConfig = {
-  mode: 'production',
   entry: {
-    app: [resolve('../src/app.tsx')]
+    app: resolve('../src/app.tsx')
   },
   output: {
     path: resolve('../dist'),
-    filename: '[name][hash:5].js'
+    filename: '[name][contenthash:5].js'
   },
   module: {
     rules: [
@@ -49,6 +46,6 @@ const webpackConfig = {
       }
     ]
   },
-  plugins: [new HtmlWebpackPlugin({ template: resolve('../src/public/index.html') }), new CleanWebpackPlugin()]
+  plugins: [new HtmlWebpackPlugin({ template: resolve('../src/public/index.html'), title: 'webpack 5' })]
 }
 module.exports = webpackConfig
