@@ -46,6 +46,6 @@ const webpackConfig = {
       }
     ]
   },
-  plugins: [new HtmlWebpackPlugin({ template: resolve('../src/public/index.html'), title: 'webpack 5' })]
+  plugins: [new HtmlWebpackPlugin({ template: resolve('../src/public/index.html'), title: 'webpack 5', inject: 'body' })]
 }
 module.exports = webpackConfig
