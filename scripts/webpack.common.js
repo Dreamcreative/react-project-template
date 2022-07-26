@@ -11,6 +11,12 @@ const webpackConfig = {
     path: resolve('../dist'),
     filename: '[name][contenthash:5].js'
   },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.less', '.json', '.js'],
+    alias: {
+      '@': resolve('../src')
+    }
+  },
   module: {
     rules: [
       {
