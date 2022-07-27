@@ -1,5 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const WebpackBar = require('webpackbar')
+const { name } = require('./../package.json')
 function resolve(relatedPath) {
   return path.join(__dirname, relatedPath)
 }
@@ -47,6 +49,13 @@ const webpackConfig = {
       }
     ]
   },
-  plugins: [new HtmlWebpackPlugin({ template: resolve('../src/public/index.html'), title: 'webpack 5', inject: 'body' })]
+  plugins: [
+    new HtmlWebpackPlugin({ template: resolve('../src/public/index.html'), title: name, inject: 'body' }),
+    new WebpackBar({
+      name: name,
+      color: 'yellowgreen',
+      profile: true
+    })
+  ]
 }
 module.exports = webpackConfig
