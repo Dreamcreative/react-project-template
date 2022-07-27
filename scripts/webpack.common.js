@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const WebpackBar = require('webpackbar')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const { name } = require('./../package.json')
 function resolve(relatedPath) {
   return path.join(__dirname, relatedPath)
@@ -55,7 +56,8 @@ const webpackConfig = {
       name: name,
       color: 'yellowgreen',
       profile: true
-    })
+    }),
+    new BundleAnalyzerPlugin()
   ]
 }
 module.exports = webpackConfig
