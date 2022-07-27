@@ -12,7 +12,7 @@ const webpackConfig = {
     filename: '[name][contenthash:5].js'
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.less', '.json', '.js'],
+    extensions: ['.tsx', '.ts', '.js'],
     alias: {
       '@': resolve('../src')
     }
@@ -20,14 +20,9 @@ const webpackConfig = {
   module: {
     rules: [
       {
-        test: /\.tsx$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-react']
-          }
-        }
+        loader: 'ts-loader'
       },
       {
         test: /\.less$/,
